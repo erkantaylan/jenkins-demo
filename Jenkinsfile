@@ -6,13 +6,12 @@ pipeline {
     }
 
     stages {
-        stage('Print Environment Variable') {
+        stage('Print Length of Secret') {
             steps {
                 script {
-                    // Temporarily print the credential
-                    echo "CS: ${CS}" // This will still be masked
-                    // Unmasking (not recommended for sensitive data)
-                    println "CS (unmasked): ${CS}" // This will expose the credential
+                    // Print the length of the secret
+                    def csLength = CS.length()
+                    echo "Length of CS: ${csLength}"
                 }
             }
         }

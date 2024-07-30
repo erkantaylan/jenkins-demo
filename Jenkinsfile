@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Display CS') {
             steps {
-                echo "CS: ${CS}"
+                sh('echo "CS: ${CS}"')
             }
         }
     }

@@ -6,9 +6,14 @@ pipeline {
     }
 
     stages {
-        stage('Display CS') {
+        stage('Print Environment Variable') {
             steps {
-                sh('echo "CS: ${CS}"')
+                script {
+                    // Temporarily print the credential
+                    echo "CS: ${CS}" // This will still be masked
+                    // Unmasking (not recommended for sensitive data)
+                    println "CS (unmasked): ${CS}" // This will expose the credential
+                }
             }
         }
     }
